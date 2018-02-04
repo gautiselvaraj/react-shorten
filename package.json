@@ -14,7 +14,8 @@
     "build": "babel -d lib src --ignore '**/__tests__/**'",
     "flow:copy": "flow-copy-source -v -i '**/__tests__/**' src lib",
     "prepublish": "yarn run build:clean && yarn run build && yarn run flow:copy",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -26,7 +27,10 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "flow-bin": "^0.64.0",
     "flow-copy-source": "^1.2.2",
+    "husky": "^0.14.3",
     "jest": "^22.1.4",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.2"
@@ -37,6 +41,12 @@
   "jest": {
     "setupFiles": [
       "<rootDir>setupTests"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
     ]
   }
 }
