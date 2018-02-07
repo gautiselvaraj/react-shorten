@@ -6,16 +6,15 @@
   "repository": "https://github.com/gautiselvaraj/react-shorten.git",
   "author": "Gauti <me@gauti.info> (https://www.gauti.info)",
   "license": "MIT",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
-    "build:clean": "rimraf lib",
     "build": "babel -d lib src --ignore '**/__tests__/**'",
+    "build:clean": "rimraf lib",
     "flow:copy": "flow-copy-source -v -i '**/__tests__/**' src lib",
-    "prepublish": "yarn run build:clean && yarn run build && yarn run flow:copy",
+    "precommit": "lint-staged",
+    "prepublish": "yarn run build:clean && yarn build && yarn flow:copy",
     "test": "jest --watch",
-    "precommit": "lint-staged"
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -40,14 +39,13 @@
     "react": ">=0.14.0"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>setupTests"
-    ]
+    "setupFiles": ["<rootDir>setupTests"]
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+  },
+  "dependencies": {
+    "canvas": "^1.6.9",
+    "exenv": "^1.2.2"
   }
 }
