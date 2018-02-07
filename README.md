@@ -9,7 +9,19 @@
 ```
 import Shorten from 'react-shorten';
 
-<Shorten by={'lines' | 'characters' | 'words'} length={Number} onExpand={() => {}} onShorten={() => {}} ellipsis="more...">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Shorten>
+<Shorten
+  by={'lines' | 'characters' | 'words'}
+  length={Number}
+  onExpand={() => {}}
+  onShorten={() => {}}
+  ellipsis="more..."
+  ellipsisStyle={{
+    color: 'white',
+    fontSize: 20
+  }}
+  ellipsisClassName="ellipsis-btn">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</Shorten>
 ```
 
 ## API
