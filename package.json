@@ -1,12 +1,14 @@
 {
   "name": "react-shorten",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component to shorten text",
   "main": "lib/index.js",
   "repository": "https://github.com/gautiselvaraj/react-shorten.git",
   "author": "Gauti <me@gauti.info> (https://www.gauti.info)",
   "license": "MIT",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel -d lib src --ignore '**/__tests__/**'",
     "build:clean": "rimraf lib",
@@ -40,10 +42,15 @@
     "react": ">=0.14.0"
   },
   "jest": {
-    "setupFiles": ["<rootDir>setupTests"]
+    "setupFiles": [
+      "<rootDir>setupTests"
+    ]
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "canvas": "^1.6.9",
