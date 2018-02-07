@@ -1,7 +1,7 @@
 {
   "name": "react-shorten",
   "version": "1.0.0",
-  "description": "React component to shorten anything",
+  "description": "React component to shorten text",
   "main": "lib/index.js",
   "repository": "https://github.com/gautiselvaraj/react-shorten.git",
   "author": "Gauti <me@gauti.info> (https://www.gauti.info)",

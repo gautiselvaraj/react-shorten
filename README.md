@@ -1,4 +1,8 @@
 # React-Shorten
+[![Coverage Status](https://coveralls.io/repos/github/gautiselvaraj/react-shorten/badge.svg?branch=master)](https://coveralls.io/github/gautiselvaraj/react-shorten?branch=master)
+[![Build Status](https://travis-ci.org/gautiselvaraj/react-shorten.svg?branch=master)](https://travis-ci.org/gautiselvaraj/react-shorten)
+
+React component to shorten text by lines, words or characters with more action to show the original text.
 
 ## Installation
 
