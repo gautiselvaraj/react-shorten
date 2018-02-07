@@ -6,7 +6,7 @@ import Shorten from '../';
 
 describe('<Shorten />', () => {
   const testChildren =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare finibus turpis, vel venenatis felis dignissim eu. In sed mattis eros, sit amet pulvinar velit. Donec vehicula metus ac libero condimentum, eget mollis enim ullamcorper.';
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare finibus turpis, vel venenatis felis dignissi eu. In sed mattis eros, sit amet pulvinar velit. Donec vehicula metus ac libero condimentum, eget mollis enim ullamcorper.';
   const testChildrenSmall =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
@@ -80,7 +80,7 @@ describe('<Shorten />', () => {
       it('should render correct truncated text with default options', () => {
         const wrapper = mount(<Shorten>{testChildren}</Shorten>);
         expect(wrapper.text()).toBe(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare finibus turpis, vel venenatis felis dignissim eu. In sed mattis eros, sit amet pulvinar velit. more...'
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare finibus turpis, vel venenatis felis dignissi eu. In sed mattis eros, sit amet pulvinar velit. more...'
         );
       });
 
