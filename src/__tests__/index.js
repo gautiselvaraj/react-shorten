@@ -38,9 +38,6 @@ describe('<Shorten />', () => {
     beforeAll(() => {
       canUseDOM = ExecutionEnvironment.canUseDOM;
       ExecutionEnvironment.canUseDOM = true;
-      jest
-        .spyOn(global.window.Element.prototype, 'getBoundingClientRect')
-        .mockImplementation(() => ({ width: 300 }));
       jest.spyOn(global.window, 'getComputedStyle').mockImplementation(() => ({
         'font-weight': 400,
         'font-style': 'normal',
@@ -49,10 +46,19 @@ describe('<Shorten />', () => {
       }));
     });
 
+    beforeEach(() => {
+      jest
+        .spyOn(global.window.Element.prototype, 'getBoundingClientRect')
+        .mockImplementation(() => ({ width: 300 }));
+    });
+
     afterAll(() => {
       ExecutionEnvironment.canUseDOM = canUseDOM;
-      global.window.Element.prototype.getBoundingClientRect.mockRestore();
       global.window.getComputedStyle.mockRestore();
+    });
+
+    afterEach(() => {
+      global.window.Element.prototype.getBoundingClientRect.mockRestore();
     });
 
     it('should render a span', () => {
@@ -228,7 +234,7 @@ describe('<Shorten />', () => {
         it('should render original text without ellipsis when on window resize the screen width fits original text', () => {
           const wrapper = mount(<Shorten length={2}>{testChildren}</Shorten>);
           expect(wrapper.text()).toBe(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. more...'
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare finibus turpis, vel venenatis felis more...'
           );
 
           jest
