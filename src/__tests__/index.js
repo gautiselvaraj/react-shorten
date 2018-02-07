@@ -176,14 +176,14 @@ describe('<Shorten />', () => {
 
       describe('during unmount', () => {
         let windowRemoveEventListenerMock;
-        beforeAll(() => {
-          windowRemoveEventListenerMock = jest.fn();
-          jest
-            .spyOn(global.window, 'removeEventListener')
-            .mockImplementation(windowRemoveEventListenerMock);
+        beforeEach(() => {
+          windowRemoveEventListenerMock = jest.spyOn(
+            global.window,
+            'removeEventListener'
+          );
         });
 
-        afterAll(() => {
+        afterEach(() => {
           global.window.removeEventListener.mockRestore();
         });
 
