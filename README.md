@@ -39,3 +39,9 @@ import Shorten from 'react-shorten';
 | onExpand | function | | Called on when more link is clicked and orginal text is shown. | `<Shorten onExpand={() => {}}>Lorem ipsum dolor sit amet</Shorten>` |
 | ellipsisStyle | object | | Override the inline-styles of ellipsis's button element. | `<Shorten ellipsisStyle={{color: 'white', fontSize: 20}}>Lorem ipsum dolor sit amet</Shorten>` |
 | ellipsisClassName | string | | The css class name of ellipsis's button element. | `<Shorten ellipsisClassName="ellipsis-btn">Lorem ipsum dolor sit amet</Shorten>` |
+
+## Author
+**[Gauti Selvaraj](https://www.gauti.info)**
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
