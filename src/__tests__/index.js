@@ -141,13 +141,42 @@ describe('<Shorten />', () => {
         expect(onShortenMock.mock.calls.length).toBe(1);
       });
 
-      it('should call onExpand when ellipsis is clicked', () => {
-        const onExpandMock = jest.fn();
-        const wrapper = mount(
-          <Shorten onExpand={onExpandMock}>{testChildren}</Shorten>
-        );
-        wrapper.find('button').simulate('click');
-        expect(onExpandMock.mock.calls.length).toBe(1);
+      describe('onExpand', () => {
+        let windowRemoveEventListenerMock;
+        beforeEach(() => {
+          windowRemoveEventListenerMock = jest.spyOn(
+            global.window,
+            'removeEventListener'
+          );
+        });
+
+        afterEach(() => {
+          global.window.removeEventListener.mockRestore();
+        });
+
+        it('should call onExpand prop when ellipsis is clicked', () => {
+          const onExpandMock = jest.fn();
+          const wrapper = mount(
+            <Shorten onExpand={onExpandMock}>{testChildren}</Shorten>
+          );
+          wrapper.find('button').simulate('click');
+          expect(onExpandMock.mock.calls.length).toBe(1);
+        });
+
+        it('should remove window resize event listener when ellipsis is clicked', () => {
+          const wrapper = mount(<Shorten>{testChildren}</Shorten>);
+          expect(
+            windowRemoveEventListenerMock.mock.calls.find(
+              call => call[0] === 'resize'
+            )
+          ).toBeUndefined();
+          wrapper.find('button').simulate('click');
+          expect(
+            windowRemoveEventListenerMock.mock.calls.find(
+              call => call[0] === 'resize'
+            )
+          ).toBeDefined();
+        });
       });
 
       describe('during children change', () => {

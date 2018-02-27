@@ -57,6 +57,10 @@ export default class Shorten extends Component<Props, State> {
   }
 
   componentWillUnmount() {
+    this.removeEventListener();
+  }
+
+  removeEventListener() {
     if (this.props.by === 'lines') {
       window.removeEventListener('resize', this.onResize);
     }
@@ -159,6 +163,7 @@ export default class Shorten extends Component<Props, State> {
 
   handleExpand = () => {
     const { children, onExpand } = this.props;
+    this.removeEventListener();
 
     this.setState({
       shortenedText: children,
