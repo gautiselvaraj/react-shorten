@@ -28,7 +28,7 @@ describe('<Shorten />', () => {
 
     it('should render children as it is for bots to index it', () => {
       const markup = renderToString(<Shorten>{testChildren}</Shorten>);
-      expect(markup).toBe(testChildren);
+      expect(markup).toBe(`<span data-reactroot=\"\">${testChildren}</span>`);
     });
   });
 

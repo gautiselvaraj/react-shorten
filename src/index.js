@@ -183,7 +183,7 @@ export default class Shorten extends Component<Props, State> {
     // Return originalText when rendering in server
     // so bots can index the whole text
     if (!ExecutionEnvironment.canUseDOM) {
-      return this.props.children;
+      return <span>{this.props.children}</span>;
     }
 
     const { shortenedText, shorten } = this.state;
