@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { renderToString } from 'react-dom/server';
 import { shallow, mount } from 'enzyme';
 import ExecutionEnvironment from 'exenv';
-import Shorten from '../';
+import Shorten from '../src';
 
 describe('<Shorten />', () => {
   const testChildren =

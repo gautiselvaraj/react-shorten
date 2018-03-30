@@ -1,6 +1,7 @@
 # React-Shorten
-[![Coverage Status](https://coveralls.io/repos/github/gautiselvaraj/react-shorten/badge.svg?branch=master)](https://coveralls.io/github/gautiselvaraj/react-shorten?branch=master)
 [![Build Status](https://travis-ci.org/gautiselvaraj/react-shorten.svg?branch=master)](https://travis-ci.org/gautiselvaraj/react-shorten)
+[![Coverage Status](https://coveralls.io/repos/github/gautiselvaraj/react-shorten/badge.svg?branch=master)](https://coveralls.io/github/gautiselvaraj/react-shorten?branch=master)
+[![npm package][https://img.shields.io/npm/v/npm-package.png?style=flat-square]][https://www.npmjs.org/package/npm-package]
 
 React component to shorten text by lines, words or characters with some customizations and callbacks.
 

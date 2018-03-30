@@ -2,25 +2,37 @@
   "name": "react-shorten",
   "version": "1.0.4",
   "description": "React component to shorten text",
-  "main": "lib/index.js",
   "repository": "https://github.com/gautiselvaraj/react-shorten.git",
   "author": "Gauti <me@gauti.info> (https://www.gauti.info)",
+  "homepage": "https://www.gauti.info/react-shorten",
   "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
-    "lib"
+    "css",
+    "es",
+    "lib",
+    "umd"
   ],
   "scripts": {
-    "build": "babel -d lib src --ignore '**/__tests__/**'",
-    "build:clean": "rimraf lib",
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "start": "nwb serve-react-demo",
     "flow:copy": "flow-copy-source -v -i '**/__tests__/**' src lib",
     "precommit": "lint-staged",
-    "prepublish": "yarn run build:clean && yarn build && yarn flow:copy",
-    "test": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "coverage:watch": "jest --coverage --watch"
+  },
+  "dependencies": {
+    "canvas": "^1.6.10",
+    "exenv": "^1.2.2"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
@@ -28,32 +40,34 @@
     "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "flow-bin": "^0.64.0",
-    "flow-copy-source": "^1.2.2",
+    "flow-bin": "^0.69.0",
+    "flow-copy-source": "^1.3.0",
     "husky": "^0.14.3",
-    "jest": "^22.1.4",
-    "lint-staged": "^6.1.0",
-    "prettier": "^1.10.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "rimraf": "^2.6.2"
+    "jest": "^22.4.3",
+    "lint-staged": "^7.0.0",
+    "nwb": "0.21.x",
+    "prettier": "^1.11.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
-  "peerDependencies": {
-    "react": ">=0.14.0"
-  },
+  "keywords": [
+    "react-component"
+  ],
   "jest": {
     "setupFiles": [
       "<rootDir>setupTests"
-    ]
+    ],
+    "testMatch": [
+      "<rootDir>tests/**/*.js"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/jest.transform.js"
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
       "prettier --single-quote --write",
       "git add"
     ]
-  },
-  "dependencies": {
-    "canvas": "^1.6.9",
-    "exenv": "^1.2.2"
   }
 }
